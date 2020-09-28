@@ -1,31 +1,46 @@
 <template>
   <div class="content">
-    <div class="section-1">
+    <div class="section">
+      <img src="../assets/meross-landingPage_01.png" alt="">
     </div>
-    <div class="sign-section">
-      <el-input v-model="info" placeholder="Email address (sign up for exclusive offer)">
-        <el-button slot="append" @click="subscribe">subscribe</el-button>
-      </el-input>
-      <div class="protocol">
-        <!-- <el-checkbox v-model="checked"></el-checkbox> -->
-        * Your personal data will not be shared with any third-party companies. For more details, please check the Meross <el-button type="text" @click="infoClick">privacy policy</el-button>
+    <div style="position: relative">
+      <div class="sign-section">
+        <el-input v-model="info" placeholder="Email address (sign up for exclusive offer)" >
+          <el-button slot="append" @click="subscribe">Subscribe</el-button>
+        </el-input>
+        <div class="protocol">
+          <!-- <el-checkbox v-model="checked"></el-checkbox> -->
+          * Subscribe to receive news, promotions and recommendations about products and services from Meross, its agencies and partners.
+        </div>
       </div>
     </div>
-    <div class="section-2">
-      <img src="https://d2utgrzbxqaq8t.cloudfront.net/public/staticfile/1559195061618/9794107.jpg" alt="">
+    <div class="section">
+       <img src="../assets/meross-landingPage_02.png" alt="">
     </div>
-    <div class="section-3">
-      <img src="https://d2utgrzbxqaq8t.cloudfront.net/public/staticfile/1559195061618/9794107.jpg" alt="">
+     <div class="section">
+       <img src="../assets/meross-landingPage_03.png" alt="">
     </div>
-    <div class="section-4">
-      <img src="https://d2utgrzbxqaq8t.cloudfront.net/public/staticfile/1559195061618/9794107.jpg" alt="">
+     <div class="section">
+       <img src="../assets/meross-landingPage_04.png" alt="">
     </div>
-    <div class="sign-section">
-      <el-input v-model="info" placeholder="Email address (Email address (sign up for exclusive offer))">
-        <el-button slot="append" @click="subscribe">Subscribe</el-button>
-      </el-input>
-      <div class="protocol">
-        <el-checkbox v-model="checked"></el-checkbox>I agress to the <el-button type="text" @click="infoClick">Term of Use</el-button> and have read and understood the <el-button type="text" @click="infoClick">Privacy Policy</el-button>
+     <div class="section">
+       <img src="../assets/meross-landingPage_05.png" alt="">
+    </div>
+     <div class="section">
+       <img src="../assets/meross-landingPage_06.png" alt="">
+    </div>
+     <div class="section">
+       <img src="../assets/meross-landingPage_07.png" alt="">
+    </div>
+    <div style="position: relative">
+      <div class="sign-section sign-section2">
+        <el-input v-model="info" placeholder="Email address (sign up for exclusive offer)" >
+          <el-button slot="append" @click="subscribe">Subscribe</el-button>
+        </el-input>
+        <div class="protocol">
+          <!-- <el-checkbox v-model="checked"></el-checkbox> -->
+          * Subscribe to receive news, promotions and recommendations about products and services from Meross, its agencies and partners.
+        </div>
       </div>
     </div>
   </div>
@@ -39,7 +54,16 @@ export default {
     return {
       info: '',
       checked: false,
-      tip: '福利绝对是v老师极乐世界分开了就啊开始减肥就啊帅哭了经典福克斯将就啊睡懒觉分开了睡大觉阿克琉斯分就看了撒娇分了快点睡觉觉拉萨附近了快就离开就记录'
+      tip:  <div>
+              <div>1. Voice control, support Alexa, Google Assistant and Siri.</div>
+              <div>2. Check garage door status, control it anytime and anywhere.</div>
+              <div>3. Get alerts when your garage door is opened, closed, opened for a long time, or it's not closed at bedtime.</div>
+              <div>4. PIN code required.</div>
+              <div>5. Sound alarm protects your family's safety.</div>
+              <div>6. History check - know who and when opens or closes the door from which channel.</div>
+              <div>7. Support up to 3 single doors.</div>
+            </div>
+            
     }
   },
   methods: {
@@ -49,25 +73,13 @@ export default {
       })
     },
     subscribe() {
-      // if(this.checked) {
         axios.post('http://xdev.meross.com:38083/landing-page-email',{ email: this.info }).then(({ data }) => {
-          // if(data.code === 200) {
             this.$alert(data.info, {
               confirmButtonText: 'OK',
-            }) 
-          // }
-          // this.$alert('提交成功', {
-          //   confirmButtonText: '确定',
-          // }) 
+            })
         })
       }   
-      // else {
-      //   this.$alert('请阅读并同意', {
-      //     confirmButtonText: '确定',
-      //   })  
-      // }
-      
-    // }
+
   },
   props: {
 
@@ -78,65 +90,74 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 .content {
-  background-color: blue;
-  .section-1 {
-    height: 12rem;
-    background: url('https://d2utgrzbxqaq8t.cloudfront.net/public/staticfile/1559195061618/9794107.jpg') no-repeat;
-    background-size: 100%;
+  img {
+    width: 100%;
+    display: block;
   }
   .sign-section {
     text-align: center;
+    position: absolute;
+    width: 100%;
+    top: -1.8rem;
     .el-input-group--append {
-      width: 600px;
+      width: 40%;
       margin: 0 auto;
       .el-input__inner{
-        border-radius: 28px ;
-        height: 56px;
+        border-radius: 1.8rem ;
+        height: 3.6rem;
         border: none;
-        padding-right: 50px;
-        padding-left: 20px;
+        padding-right: 3rem;
+        padding-left: 2rem;
         width: 110%;
-        font-size: 14px;
+        font-size: 0.9rem;
         &::placeholder {
           color: rgb(107, 100, 230)
         }
       }
       .el-input-group__append {
-        border-radius: 15px 50px 50px 15px;
+        border-radius: 1rem 3rem 3rem 1rem;
         background-color: rgb(245,120,38);
-        border: 5px solid #fff;
+        border: 0.3rem solid #fff;
         color: #fff;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 1.1rem;
       }
+    }
+    &.sign-section2 {
+      top: -16rem;
     }
     .protocol {
       color: rgb(190, 190, 190);
-      .el-checkbox {
-        margin-right: 8px;
-        .el-checkbox__inner {
-          height: 20px;
-          width: 20px;
-          background-color: transparent;
-          border: 1px solid #ddd;
-          &::after {
-            height: 20px;
-            width: 10px;
-            border: 4px solid rgb(245,120,38);
-            border-left: 0;
-            border-top: 0;
-            top: -8px;
-          }
-        }
-      }
-      .el-button+.el-button {
-        margin: 0;
-      }
-      .el-button--text {
-        color: rgb(190, 190, 190);
-        border-bottom: 1px solid rgb(190, 190, 190);
-        padding-bottom: 1px;
-      }
+      width: 38%;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      // .el-checkbox {
+      //   margin-right: 8px;
+      //   .el-checkbox__inner {
+      //     height: 20px;
+      //     width: 20px;
+      //     background-color: transparent;
+      //     border: 1px solid #ddd;
+      //     &::after {
+      //       height: 20px;
+      //       width: 10px;
+      //       border: 4px solid rgb(245,120,38);
+      //       border-left: 0;
+      //       border-top: 0;
+      //       top: -8px;
+      //     }
+      //   }
+      // }
+      // .el-button+.el-button {
+      //   margin: 0;
+      // }
+      // .el-button--text {
+      //   color: rgb(190, 190, 190);
+      //   border-bottom: 1px solid rgb(190, 190, 190);
+      //   padding-bottom: 1px;
+      // }
     }
     
   }
